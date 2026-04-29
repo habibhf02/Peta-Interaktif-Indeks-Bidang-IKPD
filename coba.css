@@ -39,9 +39,9 @@ html, body {
 
 /* SVG */
 svg {
-  width: 95%;
+  width: 100%;
   max-width: 1400px;
-  height: auto;
+  height: 100%;
 }
 
 /* PROVINSI */
