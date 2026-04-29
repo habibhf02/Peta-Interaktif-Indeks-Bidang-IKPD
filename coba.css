@@ -85,7 +85,7 @@ svg path:hover {
   bottom: 0;
   left: 0;
   right: 0;
-  height: 70px;
+  height: 10px;
 
   background: rgba(18, 47, 54, 0.95);
   backdrop-filter: blur(10px);
