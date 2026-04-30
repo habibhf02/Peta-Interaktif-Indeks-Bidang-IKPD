@@ -22,9 +22,12 @@ html, body {
   border-bottom: 2px solid #c0a407;
   border-radius: 10px;
   box-sizing: border-box;
-   background-color: #122f36;
+  background-color: #122f36;
 }
 
+.header p{
+  font-style: italic;
+}
 
 
 /* ================= MAP ================= */
@@ -46,7 +49,6 @@ svg {
   max-width: 1400px;
   height: 100%;
   object-fit: contain;
-  transform: translateY(-20px);
 }
 
 /* PROVINSI */
