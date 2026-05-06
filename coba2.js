@@ -769,7 +769,7 @@ function updateIndonesia() {
         background:#f5f7fa;
         border:1px solid #ddd;
         border-radius:10px;
-        padding:8px;
+        padding:4px;
       ">
         <span><strong>${indikator} ${tahun}</strong></span>
         <strong style="font-size:15px; color:#122f36;">
