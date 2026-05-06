@@ -1,0 +1,403 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* FULL SCREEN */
+html, body {
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Times New Roman', Times, serif;
+  background-color: #ffffff;
+}
+
+/* HEADER */
+.header {
+  color: #ffffff;
+  text-align: center;
+  padding: 10px;
+  height: 80px;
+  border-bottom: 2px solid #c0a407;
+  border-radius: 10px;
+  box-sizing: border-box;
+  background-color: #122f36;
+}
+
+.header p{
+  font-style: italic;
+}
+
+
+/* ================= MAP ================= */
+.map-container {
+  position: fixed;
+  top: 80px;
+  bottom: 100px;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* SVG */
+svg {
+  width: 100%;
+  max-width: 1400px;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* PROVINSI */
+svg path {
+  transition: all 0.25s ease;
+  transform-origin: center;
+  transform-box: fill-box;
+  fill:rgba(18, 47, 54, 0.95);
+  stroke: #eee;
+  stroke-width: .7;
+}
+
+/* Hover tetap warna kategori */
+svg path:hover:not(.no-data) {
+  transform: scale(1.08);
+  filter: brightness(1.15) drop-shadow(0 4px 8px rgba(0,0,0,.35));
+  cursor: pointer;
+}
+svg path.no-data{
+  fill: #cccccc !important;
+}
+
+svg path.no-data:hover{
+  fill: #aaaaaa !important;
+  cursor: not-allowed;
+}
+
+
+
+/* ================= TOOLTIP ================= */
+#tooltip {
+  position: absolute;
+  background: #205856;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  pointer-events: none;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.2s;
+}
+
+#tooltip.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ================= SIDEBAR (BAWAH) ================= */
+/* SIDEBAR */
+.sidebar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  padding: 8px 20px;
+  height: auto; /* 🔥 biarkan menyesuaikan isi */
+
+  background: rgba(18, 47, 54, 0.95);
+  backdrop-filter: blur(10px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+
+  border-top: 2px solid #c0a407;
+}
+
+/* LABEL */
+.sidebar label {
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.sidebar select {
+  font-size: 14px;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+/* ================= POPUP ================= */
+.popup {
+  display:none;
+  position: fixed;
+  top: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+}
+
+#popup.show{
+  display:flex;
+}
+
+/* POPUP CARD */
+.popup-content {
+  background: #ffffff;
+  color: #000;
+  padding: 10px;
+  width: 320px;
+  border-radius: 12px;
+  text-align: center;
+  width:100%;
+  height:100%;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+
+
+  position: relative;
+}
+
+/* JUDUL */
+.popup-content h2 {
+  display: inline-block;
+  margin-bottom: 10px;
+  border-bottom:1px solid #eee
+}
+
+/* NILAI */
+.popup-content p {
+  font-size: 18px;
+  font-weight: bold;
+  color: #000000;
+}
+
+/* CLOSE BUTTON */
+#close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+  font-size: 20px;
+  color: #555;
+}
+
+#close:hover {
+  color: red;
+  transform: scale(1.2);
+}
+
+/* ANIMASI */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -10px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+#nilaiIndeks div {
+  margin: 5px 0;
+  padding: 5px;
+  border-bottom: 1px solid #eee;
+}
+
+.logo-bawah {
+  position: fixed;
+  bottom: 50px;   /* jarak dari bawah */
+  left: 10px;     /* jarak dari kiri */
+
+  width: 80px;    /* ukuran gambar */
+  height: auto;
+
+  z-index: 9999;  /* biar di atas elemen lain */
+}
+
+.logo-bawah {
+  opacity: 0.8;
+  transition: 0.3s;
+}
+
+.logo-bawah:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.land {
+  opacity: 1;
+  transition: 0.3s;
+}
+
+.land.dim {
+  opacity: 0.2;
+}
+
+.land.active {
+  opacity: 1;
+  fill: #c0a407 !important;
+}
+
+#indonesiaBox {
+  position: fixed;
+  bottom: 45px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #122f36;
+  color: rgb(0, 0, 0);
+  padding: 3px 20px;
+  border-radius: 10px;
+  text-align: center;
+  min-width: 300px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+#indonesiaBox h3 {
+  margin-bottom: 5px;
+  font-size: 16px;
+  border-bottom: 1px solid #ffffff;
+  color:#ffffff
+}
+
+#nilaiIndonesia {
+  font-size: 14px;
+}
+
+/* .level-1 { fill: #eaf7f9 !important; }  
+.level-2 { fill: #8fc9d4 !important; }  
+.level-3 { fill: #3e8ea1 !important; }  
+.level-4 { fill: #1f5c68 !important; }  
+.level-5 { fill: #122f36!important; }  */
+
+.level-1 { fill: #a60303 !important; }  
+.level-2 { fill: #eb9100 !important; }  
+.level-3 { fill: #d8bb29 !important; }  
+.level-4 { fill: #00a73a !important; }  
+.level-5 { fill: #00560a!important; }
+.level-6 { fill: #122f36 !important; }
+
+/* ===========================
+   SIDEBAR LEGEND
+   =========================== */
+.legend-box{
+  margin-top: 18px;
+  background: rgba(255,255,255,0.08);
+  padding: 12px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 13px;
+}
+
+.legend-box h3{
+  margin: 0 0 10px 0;
+  font-size: 15px;
+  border-bottom: 1px solid rgba(255,255,255,.2);
+  padding-bottom: 6px;
+}
+
+.legend-item{
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.legend-color{
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.legend-text{
+  line-height: 1.2;
+}
+
+.legend-note{
+  margin-top: 8px;
+  font-size: 100px;
+  opacity: .8;
+}
+
+.no-data{
+  fill:#cfcfcf !important;
+}
+
+
+
+#legendBox{
+  position: fixed;
+  left: 10px;
+  top: 200px;
+  width: 150px;
+  border: #122f36 2px solid;
+  color: rgb(0, 0, 0);
+  padding: 15px;
+  border-radius: 12px;
+  font-size: 9px;
+  z-index: 999;
+  pointer-events: none;
+}
+
+#legendBox h3{
+  margin: 0 0 10px;
+  font-size: 16px;
+}
+
+.legend-item{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 20px 0;
+  font-size: 14px;
+}
+
+.legend-color{
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  border: 1px solid #999;
+}
+
+/* warna level */
+.warna1{ background:#a60303; }
+.warna2{ background:#eb9100; }
+.warna3{ background:#d8bb29 ; }
+.warna4{ background:#00a73a; }
+.warna5{ background:#00560a; }
+.warna0{ background:#cccccc; }
+
+#idiBox{
+  position: fixed;
+  top: 120px;
+  right: 20px;
+  background: white;
+  border: 2px solid #122f36;
+  border-radius: 12px;
+  padding: 15px;
+  width: 220px;
+  z-index: 999;
+}
+
+#idiBox h3{
+  margin-bottom: 10px;
+  border-bottom:1px solid #ddd;
+  font-size: 15px;
+}
+
+#namaProvinsi{
+  margin:0 0 2px 0;
+  padding:0;
+  font-size:18px;
+  line-height:1;
+}
+
+
+
+
