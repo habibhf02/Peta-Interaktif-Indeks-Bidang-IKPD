@@ -558,7 +558,7 @@ provinces.forEach(p => {
         font-size:18px;
         margin-top:10px;
       ">
-        <span>${indikator} ${tahun}</span>
+        <strong>${indikator} ${tahun}</strong>
         <strong>${nilai ?? "-"}</strong>
       </div>
       `;
