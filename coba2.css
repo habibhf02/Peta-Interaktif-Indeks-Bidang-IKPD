@@ -398,6 +398,37 @@ svg path.no-data:hover{
   line-height:1;
 }
 
+#btnHelp{
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+
+  background: #122f36;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  text-decoration: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  z-index: 9999;
+  cursor:pointer;
+
+  transition: 0.3s;
+}
+
+#btnHelp:hover{
+  background:#1d4953;
+}
+
+
 
 
 
