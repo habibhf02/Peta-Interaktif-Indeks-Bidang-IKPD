@@ -1274,5 +1274,12 @@ function refreshBoxNasional() {
 // tambahkan baris ini paling bawah function updateIndonesia():
 refreshBoxNasional();
 
+document.getElementById("btnHelp").addEventListener("click", function(){
 
+   const link = document.createElement("a");
+   link.href = "Panduan Peta Interaktif Bidang IKPD.pdf";
+   link.download = "Panduan Peta Interaktif Bidang IKPD.pdf";
+   link.click();
+
+});
 
